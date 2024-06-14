@@ -33,9 +33,9 @@ const Index = () => {
   }, [searchTerm, stories]);
 
   return (
-    <Container centerContent maxW="container.md" py={4}>
-      <HStack width="100%" justifyContent="space-between" mb={4}>
-        <Text fontSize="2xl">Top 5 Hacker News Stories</Text>
+    <Container centerContent maxW={{ base: "container.sm", md: "container.md" }} py={{ base: 2, md: 4 }}>
+      <HStack width="100%" justifyContent="space-between" mb={{ base: 2, md: 4 }}>
+        <Text fontSize={{ base: "xl", md: "2xl" }}>Top 5 Hacker News Stories</Text>
         <IconButton
           aria-label="Toggle dark mode"
           icon={colorMode === "light" ? <FaMoon /> : <FaSun />}
@@ -44,14 +44,14 @@ const Index = () => {
       </HStack>
       <Input
         placeholder="Search stories..."
-        mb={4}
+        mb={{ base: 2, md: 4 }}
         value={searchTerm}
         onChange={e => setSearchTerm(e.target.value)}
       />
       <VStack spacing={4} width="100%">
         {filteredStories.map(story => (
-          <Box key={story.id} p={4} borderWidth="1px" borderRadius="md" width="100%">
-            <Text fontSize="lg" fontWeight="bold">{story.title}</Text>
+          <Box key={story.id} p={{ base: 2, md: 4 }} borderWidth="1px" borderRadius="md" width="100%">
+            <Text fontSize={{ base: "md", md: "lg" }} fontWeight="bold">{story.title}</Text>
             <Text>Upvotes: {story.score}</Text>
             <Link href={story.url} color="teal.500" isExternal>Read more</Link>
           </Box>
